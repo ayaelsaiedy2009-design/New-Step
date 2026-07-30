@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Universities | New Step</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.css">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark">
+
+    <div class="container">
+
+        <a class="navbar-brand fw-bold" href="index.html">
+
+            New Step
+
+        </a>
+
+        <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarMenu">
+
+            <span class="navbar-toggler-icon"></span>
+
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarMenu">
+
+            <ul class="navbar-nav ms-auto">
+
+                <li class="nav-item">
+                    <a class="nav-link" href="dashboard.html">Dashboard</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link active" href="universities.html">Universities</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="scholarships.html">Scholarships</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="profile.html">Profile</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="contact.html">Contact</a>
+                </li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</nav>
+
+<section class="universities-section py-5">
+
+    <div class="container">
+
+        <div class="text-center mb-5">
+
+            <h2 class="fw-bold">Explore Universities</h2>
+
+            <p class="text-muted">
+                Search for universities that match your academic goals and budget.
+            </p>
+
+        </div>
+
+        <!-- Search -->
+
+        <div class="row justify-content-center mb-4">
+
+            <div class="col-lg-8">
+
+                <input
+                    type="text"
+                    class="form-control search-input"
+                    id="searchInput"
+                    placeholder="Search by university name...">
+
+            </div>
+
+        </div>
+
+        <!-- Filters -->
+
+        <div class="row g-3 mb-5">
+
+            <div class="col-md-4">
+
+                <select class="form-select" id="countryFilter">
+
+                    <option value="all">All Countries</option>
+                    <option value="Egypt">Egypt</option>
+                    <option value="United States">United States</option>
+                    <option value="United Kingdom">United Kingdom</option>
+                    <option value="Canada">Canada</option>
+
+                </select>
+
+            </div>
+
+            <div class="col-md-4">
+
+                <select class="form-select" id="budgetFilter">
+
+                    <option value="all">All Budgets</option>
+                    <option value="Low">Low</option>
+                    <option value="Medium">Medium</option>
+                    <option value="High">High</option>
+
+                </select>
+
+            </div>
+
+            <div class="col-md-4">
+
+                <select class="form-select" id="typeFilter">
+
+                    <option value="all">All Types</option>
+                    <option value="Public">Public</option>
+                    <option value="Private">Private</option>
+
+                </select>
+
+            </div>
+
+        </div>
+
+        <!-- Universities -->
+
+        <div class="row" id="universitiesContainer">
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- Modal -->
+
+<div class="modal fade" id="universityModal" tabindex="-1">
+
+    <div class="modal-dialog modal-lg">
+
+        <div class="modal-content">
+
+            <div class="modal-header">
+
+                <h5 class="modal-title" id="modalTitle">
+                    University
+                </h5>
+
+                <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal">
+                </button>
+
+            </div>
+
+            <div class="modal-body">
+
+                <img
+                    id="modalImage"
+                    class="img-fluid rounded mb-3"
+                    alt="University">
+
+                <p id="modalCountry"></p>
+
+                <p id="modalCity"></p>
+
+                <p id="modalType"></p>
+
+                <p id="modalBudget"></p>
+
+                <p id="modalRanking"></p>
+
+                <p id="modalMajors"></p>
+
+                <p id="modalDescription"></p>
+
+                <a
+                    id="modalWebsite"
+                    class="btn btn-success mt-3"
+                    target="_blank">
+
+                    Visit Official Website
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+
+<script src="js/universities.js"></script>
+
+</body>
+
+</html>

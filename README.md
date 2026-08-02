@@ -23,29 +23,21 @@ Students Accommodation — find accommodation by city and type, filter it by pri
 Budget Calculator — input expenses for rent, electricity, water, internet, gas, food, transport and personal expenses; user will receive instant feedback on whether the expenses fit in traditional expenses of a student
 AI Friend (chatbot) — provides answers to frequently asked students' questions regarding universities, scholarships, admission requirements, accommodation and planning of finances
 
-## 📸 Screenshots
-
-### Landing Page
+##  Screenshots
+### landing Page
 ![Landing Page](screenshots/landing.png.jpg)
-
 ### Student Dashboard
 ![Dashboard](screenshots/dashboard.png.jpg)
-
 ### Student Profile
 ![Profile](screenshots/profile.png.jpg)
-
 ### Universities Explorer
 ![Universities](screenshots/universities.png.jpg)
-
 ### Scholarships Explorer
 ![Scholarships](screenshots/scholarships.png.jpg)
-
 ### Student Accommodation
 ![Housing](screenshots/housing.png.jpg)
-
 ### Budget Calculator
 ![Budget Calculator](screenshots/budget.png.jpg)
-
 ### AI Friend
 ![AI Friend](screenshots/chatbot.png.jpg)
 

@@ -1,556 +1,217 @@
-const scholarships = [
+document.addEventListener('DOMContentLoaded', () => {
 
-{
-    name: "Chevening Scholarship",
-    country: "United Kingdom",
-    city: "London",
-    funding: "Fully Funded",
-    degree: "Master",
-    deadline: "November",
-    provider: "UK Government",
-    website: "https://www.chevening.org",
-    image: "assets/images/chevening.jpg"
-},
-
-{
-    name: "Erasmus Mundus",
-    country: "Europe",
-    city: "Multiple Countries",
-    funding: "Fully Funded",
-    degree: "Master",
-    deadline: "January",
-    provider: "European Union",
-    website: "https://erasmus-plus.ec.europa.eu",
-    image: "assets/images/erasmus.jpg"
-},
-
-{
-    name: "Fulbright Scholarship",
-    country: "United States",
-    city: "Washington",
-    funding: "Fully Funded",
-    degree: "Master & PhD",
-    deadline: "October",
-    provider: "US Government",
-    website: "https://foreign.fulbrightonline.org",
-    image: "assets/images/fulbright.jpg"
-},
-
-{
-    name: "DAAD Scholarship",
-    country: "Germany",
-    city: "Berlin",
-    funding: "Fully Funded",
-    degree: "Master & PhD",
-    deadline: "December",
-    provider: "DAAD",
-    website: "https://www.daad.de",
-    image: "assets/images/daad.jpg"
-},
-
-{
-    name: "MEXT Scholarship",
-    country: "Japan",
-    city: "Tokyo",
-    funding: "Fully Funded",
-    degree: "Bachelor, Master & PhD",
-    deadline: "May",
-    provider: "Japanese Government",
-    website: "https://www.studyinjapan.go.jp",
-    image: "assets/images/mext.jpg"
-},
-
-{
-    name: "Türkiye Burslari",
-    country: "Turkey",
-    city: "Ankara",
-    funding: "Fully Funded",
-    degree: "Bachelor, Master & PhD",
-    deadline: "February",
-    provider: "Turkish Government",
-    website: "https://www.turkiyeburslari.gov.tr",
-    image: "assets/images/turkiye.jpg"
-},
-
-{
-    name: "Chinese Government Scholarship",
-    country: "China",
-    city: "Beijing",
-    funding: "Fully Funded",
-    degree: "Bachelor, Master & PhD",
-    deadline: "March",
-    provider: "Chinese Government",
-    website: "https://www.campuschina.org",
-    image: "assets/images/china.jpg"
-},
-
-{
-    name: "Australia Awards",
-    country: "Australia",
-    city: "Canberra",
-    funding: "Fully Funded",
-    degree: "Master",
-    deadline: "April",
-    provider: "Australian Government",
-    website: "https://www.australiaawards.gov.au",
-    image: "assets/images/australia.jpg"
-},
-
-{
-    name: "Commonwealth Scholarship",
-    country: "United Kingdom",
-    city: "London",
-    funding: "Fully Funded",
-    degree: "Master & PhD",
-    deadline: "December",
-    provider: "Commonwealth",
-    website: "https://cscuk.fcdo.gov.uk",
-    image: "assets/images/commonwealth.jpg"
-},
-
-{
-    name: "Swiss Government Excellence Scholarship",
-    country: "Switzerland",
-    city: "Bern",
-    funding: "Fully Funded",
-    degree: "Master & PhD",
-    deadline: "November",
-    provider: "Swiss Government",
-    website: "https://www.sbfi.admin.ch",
-    image: "assets/images/swiss.jpg"
-},
-{
-    name: "Knight-Hennessy Scholarship",
-    country: "United States",
-    city: "California",
-    funding: "Fully Funded",
-    degree: "Master & PhD",
-    deadline: "October",
-    provider: "Stanford University",
-    website: "https://knight-hennessy.stanford.edu",
-    image: "assets/images/knight.jpg"
-},
-
-{
-    name: "Gates Cambridge Scholarship",
-    country: "United Kingdom",
-    city: "Cambridge",
-    funding: "Fully Funded",
-    degree: "Master & PhD",
-    deadline: "December",
-    provider: "University of Cambridge",
-    website: "https://www.gatescambridge.org",
-    image: "assets/images/gates.jpg"
-},
-
-{
-    name: "Rhodes Scholarship",
-    country: "United Kingdom",
-    city: "Oxford",
-    funding: "Fully Funded",
-    degree: "Master & PhD",
-    deadline: "August",
-    provider: "University of Oxford",
-    website: "https://www.rhodeshouse.ox.ac.uk",
-    image: "assets/images/rhodes.jpg"
-},
-
-{
-    name: "Orange Knowledge Programme",
-    country: "Netherlands",
-    city: "The Hague",
-    funding: "Fully Funded",
-    degree: "Master",
-    deadline: "March",
-    provider: "Dutch Government",
-    website: "https://www.studyinnl.org",
-    image: "assets/images/orange.jpg"
-},
-
-{
-    name: "VLIR-UOS Scholarship",
-    country: "Belgium",
-    city: "Brussels",
-    funding: "Fully Funded",
-    degree: "Master",
-    deadline: "February",
-    provider: "VLIR-UOS",
-    website: "https://www.vliruos.be",
-    image: "assets/images/vlir.jpg"
-},
-
-{
-    name: "KAUST Scholarship",
-    country: "Saudi Arabia",
-    city: "Jeddah",
-    funding: "Fully Funded",
-    degree: "Master & PhD",
-    deadline: "Rolling",
-    provider: "KAUST",
-    website: "https://www.kaust.edu.sa",
-    image: "assets/images/kaust.jpg"
-},
-
-{
-    name: "Brunei Government Scholarship",
-    country: "Brunei",
-    city: "Bandar Seri Begawan",
-    funding: "Fully Funded",
-    degree: "Bachelor & Master",
-    deadline: "February",
-    provider: "Brunei Government",
-    website: "https://www.mfa.gov.bn",
-    image: "assets/images/brunei.jpg"
-},
-
-{
-    name: "University of Melbourne Scholarship",
-    country: "Australia",
-    city: "Melbourne",
-    funding: "Fully Funded",
-    degree: "Master & PhD",
-    deadline: "October",
-    provider: "University of Melbourne",
-    website: "https://scholarships.unimelb.edu.au",
-    image: "assets/images/melbourne-scholarship.jpg"
-},
-
-{
-    name: "Monbukagakusho Scholarship",
-    country: "Japan",
-    city: "Tokyo",
-    funding: "Fully Funded",
-    degree: "Research",
-    deadline: "May",
-    provider: "Japanese Government",
-    website: "https://www.studyinjapan.go.jp",
-    image: "assets/images/monbukagakusho.jpg"
-},
-
-{
-    name: "ADB Scholarship",
-    country: "Japan",
-    city: "Tokyo",
-    funding: "Fully Funded",
-    degree: "Master",
-    deadline: "December",
-    provider: "Asian Development Bank",
-    website: "https://www.adb.org",
-    image: "assets/images/adb.jpg"
-},
-
-{
-    name: "Lester B. Pearson Scholarship",
-    country: "Canada",
-    city: "Toronto",
-    funding: "Fully Funded",
-    degree: "Bachelor",
-    deadline: "January",
-    provider: "University of Toronto",
-    website: "https://future.utoronto.ca",
-    image: "assets/images/pearson.jpg"
-},
-
-{
-    name: "Vanier Canada Scholarship",
-    country: "Canada",
-    city: "Ottawa",
-    funding: "Fully Funded",
-    degree: "PhD",
-    deadline: "November",
-    provider: "Government of Canada",
-    website: "https://vanier.gc.ca",
-    image: "assets/images/vanier.jpg"
-},
-
-{
-    name: "Singapore International Graduate Award",
-    country: "Singapore",
-    city: "Singapore",
-    funding: "Fully Funded",
-    degree: "PhD",
-    deadline: "June",
-    provider: "A*STAR",
-    website: "https://www.a-star.edu.sg",
-    image: "assets/images/singa.jpg"
-},
-
-{
-    name: "Hong Kong PhD Fellowship",
-    country: "Hong Kong",
-    city: "Hong Kong",
-    funding: "Fully Funded",
-    degree: "PhD",
-    deadline: "December",
-    provider: "Research Grants Council",
-    website: "https://cerg1.ugc.edu.hk",
-    image: "assets/images/hongkong.jpg"
-},
-
-{
-    name: "Eiffel Excellence Scholarship",
-    country: "France",
-    city: "Paris",
-    funding: "Fully Funded",
-    degree: "Master & PhD",
-    deadline: "January",
-    provider: "French Government",
-    website: "https://www.campusfrance.org",
-    image: "assets/images/eiffel.jpg"
-},
-
-{
-    name: "ENS International Selection",
-    country: "France",
-    city: "Paris",
-    funding: "Fully Funded",
-    degree: "Master",
-    deadline: "December",
-    provider: "École Normale Supérieure",
-    website: "https://www.ens.psl.eu",
-    image: "assets/images/ens.jpg"
-},
-
-{
-    name: "Stipendium Hungaricum",
-    country: "Hungary",
-    city: "Budapest",
-    funding: "Fully Funded",
-    degree: "Bachelor, Master & PhD",
-    deadline: "January",
-    provider: "Hungarian Government",
-    website: "https://stipendiumhungaricum.hu",
-    image: "assets/images/hungary.jpg"
-},
-
-{
-    name: "New Zealand Manaaki Scholarship",
-    country: "New Zealand",
-    city: "Wellington",
-    funding: "Fully Funded",
-    degree: "Bachelor & Master",
-    deadline: "February",
-    provider: "New Zealand Government",
-    website: "https://www.nzscholarships.govt.nz",
-    image: "assets/images/newzealand.jpg"
-},
-
-{
-    name: "Government of Ireland Scholarship",
-    country: "Ireland",
-    city: "Dublin",
-    funding: "Fully Funded",
-    degree: "Master & PhD",
-    deadline: "March",
-    provider: "Irish Government",
-    website: "https://research.ie",
-    image: "assets/images/ireland.jpg"
-},
-
-{
-    name: "Bilkent University Scholarship",
-    country: "Turkey",
-    city: "Ankara",
-    funding: "Fully Funded",
-    degree: "Bachelor, Master & PhD",
-    deadline: "July",
-    provider: "Bilkent University",
-    website: "https://w3.bilkent.edu.tr",
-    image: "assets/images/bilkent.jpg"
-}  
-
-];
-
-const container = document.getElementById("scholarshipsContainer");
-
-const searchInput = document.getElementById("searchInput");
-
-const countryFilter = document.getElementById("countryFilter");
-
-const fundingFilter = document.getElementById("fundingFilter");
-function displayScholarships(list) {
-
-    container.innerHTML = "";
-
-    if (list.length === 0) {
-
-        container.innerHTML = `
-
-        <div class="col-12 text-center">
-
-            <h3>No Scholarships Found</h3>
-
-            <p>Try another search.</p>
-
-        </div>
-
-        `;
-
-        return;
-
+  const scholarships = [
+    {
+      name: 'Chevening Scholarship', country: 'United Kingdom', funding: 'Fully Funded', degree: "Master's",
+      deadline: 'November 2026',
+      desc: "The UK government's global scholarship program, covering tuition, flights, and a monthly stipend for one-year master's degrees.",
+      website: 'https://www.chevening.org',
+      img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRKplDgmYJ-H615-n6OxxMRT0LJZyvonIgRisSoYrWqIUdu5ZIWQmRaHXk&s=10'
+    },
+    {
+      name: 'DAAD Scholarship', country: 'Germany', funding: 'Fully Funded', degree: "Bachelor's / Master's",
+      deadline: 'Rolling, varies by program',
+      desc: 'German Academic Exchange Service funding covering tuition, health insurance, and monthly stipends across a wide range of fields.',
+      website: 'https://www.daad.de',
+      img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTL_qs_E8j0R5mWPCBx7ob4cs8qObo18uCOUuZT8CGZ2BJOXNrrjUGaw0I&s=10'
+    },
+    {
+      name: 'Fulbright Foreign Student Program', country: 'United States', funding: 'Fully Funded', degree: "Master's / PhD",
+      deadline: 'May 2026',
+      desc: "The US State Department's flagship exchange program, covering tuition, living costs, and health insurance for graduate study.",
+      website: 'https://foreign.fulbrightonline.org',
+      img: 'https://mg.usembassy.gov/wp-content/uploads/sites/47/2023/03/fulbright-foreign-student-program3.jpeg'
+    },
+    {
+      name: 'MEXT Scholarship', country: 'Japan', funding: 'Fully Funded', degree: "Bachelor's / Master's",
+      deadline: 'June 2026',
+      desc: 'Japanese government scholarship covering tuition, a monthly allowance, and round-trip airfare, including a year of Japanese language prep.',
+      website: 'https://www.studyinjapan.go.jp',
+      img: 'https://www.nz.emb-japan.go.jp/culture_education/images/mext_logo.gif'
+    },
+    {
+      name: 'Türkiye Bursları', country: 'Turkey', funding: 'Fully Funded', degree: "Bachelor's / Master's / PhD",
+      deadline: 'February 2027',
+      desc: 'Turkish government scholarship covering tuition, housing, a monthly stipend, and a year of Turkish language training beforehand.',
+      website: 'https://www.turkiyeburslari.gov.tr',
+      img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTFRNxSpFphVM6wwmUJjaJpCrJQwFoGPKlaC1ysW5JDLw&s=10'
+    },
+    {
+      name: 'Chinese Government Scholarship (CSC)', country: 'China', funding: 'Fully Funded', degree: "Bachelor's / Master's / PhD",
+      deadline: 'April 2026',
+      desc: 'Covers tuition, accommodation, and a monthly stipend for study at partner Chinese universities across most academic fields.',
+      website: 'https://www.campuschina.org',
+      img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQg0D5OofBmEc_OTxERgITptFyb8IUcyZVgv_4bKlK4oTMJx2BIQuU23y99&s=10'
+    },
+    {
+      name: 'Australia Awards', country: 'Australia', funding: 'Fully Funded', degree: "Master's",
+      deadline: 'April 2026',
+      desc: 'Long-running Australian government program funding tuition, travel, and living costs for postgraduate study.',
+      website: 'https://www.australiaawards.gov.au',
+      img: 'https://static.youthop.com/uploads/2024/02/australia-awards-scholarship-2025.png'
+    },
+    {
+      name: 'Swiss Government Excellence Scholarship', country: 'Switzerland', funding: 'Fully Funded', degree: 'PhD / Postdoc',
+      deadline: 'December 2026',
+      desc: 'Funds research-based degrees at Swiss universities, including a monthly stipend and health insurance contribution.',
+      website: 'https://www.sbfi.admin.ch',
+      img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOILklbo1t0BRsZOB4HxRhQ7u4bv09KlHYyPiWtgumpg&s=10'
+    },
+    {
+      name: 'Erasmus Mundus Joint Master Degrees', country: 'European Union', funding: 'Fully Funded', degree: "Master's",
+      deadline: 'January 2027',
+      desc: "EU-funded joint master's programs taught across two or more European countries, covering tuition, travel, and a monthly living allowance.",
+      website: 'https://www.eacea.ec.europa.eu/scholarships/erasmus-mundus-catalogue_en',
+      img: 'https://i0.wp.com/opportunitiesforyouth.org/wp-content/uploads/2023/11/1631619171488.jpeg?resize=1280%2C640&ssl=1'
+    },
+    {
+      name: 'Gates Cambridge Scholarship', country: 'United Kingdom', funding: 'Fully Funded', degree: "Master's / PhD",
+      deadline: 'December 2026',
+      desc: 'Funds full-time postgraduate study at the University of Cambridge for outstanding applicants from any country outside the UK.',
+      website: 'https://www.gatescambridge.org',
+      img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdzkhltsX10vrdHCxilz6IcExc81fJPNZFavwz0m89Ku_7D3kslnX6DSJO&s=10'
+    },
+    {
+      name: 'Knight-Hennessy Scholars', country: 'United States', funding: 'Fully Funded', degree: "Master's / PhD",
+      deadline: 'October 2026',
+      desc: 'Funds any graduate degree at Stanford University, covering tuition, living stipend, and travel, open to applicants worldwide.',
+      website: 'https://knight-hennessy.stanford.edu',
+      img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQfj5U9DHIpNBbW6cPbVySlAUoJ_85sdsaRttKn-vgFvYK-Ek-MXmIlW04&s=10'
+    },
+    {
+      name: 'Vanier Canada Graduate Scholarships', country: 'Canada', funding: 'Fully Funded', degree: 'PhD',
+      deadline: 'November 2026',
+      desc: 'A prestigious Canadian government award for doctoral students at Canadian universities, open to international applicants.',
+      website: 'https://vanier.gc.ca',
+      img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROkd717uoIbQtl1fyWT9x0AOu0cAAEzBNBEDngLbrPow&s=10'
+    },
+    {
+      name: 'Eiffel Excellence Scholarship', country: 'France', funding: 'Fully Funded', degree: "Master's / PhD",
+      deadline: 'January 2027',
+      desc: "French government scholarship covering a monthly allowance, travel, health coverage, and cultural activities for top international students.",
+      website: 'https://www.campusfrance.org/en/eiffel-scholarship-program-of-excellence',
+      img: 'https://www.singapour.campusfrance.org/sites/pays/files/singapour/The%20Eiffel%20Scholarship%20of%20Excellence.jpeg'
+    },
+    {
+      name: 'Holland Scholarship', country: 'Netherlands', funding: 'Partially Funded', degree: "Bachelor's / Master's",
+      deadline: 'May 2026',
+      desc: 'A one-time grant from the Dutch government and participating universities to help cover tuition and living costs in year one.',
+      website: 'https://www.studyinnl.org/finances/holland-scholarship',
+      img: 'https://opportunitytracker.ug/wp-content/uploads/2025/07/F10AF1D1-56F1-44F5-B95A-8A3105BC89D8.jpeg'
+    },
+    {
+      name: 'Stipendium Hungaricum', country: 'Hungary', funding: 'Fully Funded', degree: "Bachelor's / Master's / PhD",
+      deadline: 'January 2027',
+      desc: 'Hungarian government scholarship covering tuition, a monthly stipend, accommodation contribution, and health insurance.',
+      website: 'https://stipendiumhungaricum.hu',
+      img: 'https://stipendiumhungaricum.hu/wp-content/uploads/2022/06/SH_logo_vertical_color.jpg'
+    },
+    {
+      name: 'Global Korea Scholarship (GKS)', country: 'South Korea', funding: 'Fully Funded', degree: "Bachelor's / Master's / PhD",
+      deadline: 'September 2026 (undergrad) · February 2027 (grad)',
+      desc: 'South Korean government scholarship covering tuition, airfare, a monthly stipend, and a year of Korean language training beforehand.',
+      website: 'https://www.studyinkorea.go.kr',
+      img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRW3ctg3bNiUEAo2eS5_OpERSFLII0mCMWFcEHFAUtXpS-lkafnThGPNSEi&s=10'
+    },
+    {
+      name: 'KAUST Fellowship', country: 'Saudi Arabia', funding: 'Fully Funded', degree: "Master's / PhD",
+      deadline: 'Rolling, varies by intake',
+      desc: 'Every student admitted to KAUST receives full tuition, housing, medical coverage, and a living stipend for the length of their degree.',
+      website: 'https://www.kaust.edu.sa/en/study',
+      img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_RwX1MfilbEC-n15YmwNIhefWAgp1t_axH1SvknJw7IOlYArokaAetlY&s=10'
+    },
+    {
+      name: 'Italian Government Scholarship', country: 'Italy', funding: 'Fully Funded', degree: "Bachelor's / Master's / PhD",
+      deadline: 'May 2026',
+      desc: 'Covers a monthly stipend, tuition waiver, and health insurance for study at Italian public universities across most subjects.',
+      website: 'https://studyinitaly.esteri.it',
+      img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQdtB0UPELofMG80uDdqeU8imAji2KySUbqfZ8bM0dMKwHTvxs8hQ_Zmg7&s=10'
+    },
+    {
+      name: 'AUC Merit Scholarship', country: 'Egypt', funding: 'Partially Funded', degree: "Bachelor's",
+      deadline: 'March 2027',
+      desc: "Awarded by the American University in Cairo based on academic merit, covering 25–100% of tuition depending on your Thanaweya/IB/IGCSE score.",
+      website: 'https://www.aucegypt.edu',
+      img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDLT1lLpI8ZoYMOVorFHJadoGiGnRD1CAY-yT5uSkCWQ&s=10'
+    },
+    {
+      name: 'GUC Merit Scholarship', country: 'Egypt', funding: 'Partially Funded', degree: "Bachelor's",
+      deadline: 'August 2026',
+      desc: 'Tuition discounts offered by the German University in Cairo to incoming students with high Thanaweya Amma, IGCSE, or IB scores.',
+      website: 'https://www.guc.edu.eg',
+      img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmnOlVlvPOf6DPiGG1u1h52UmVy62NcllltpuUSLJQlzoyUUWn5z_2N4kO&s=10'
+    },
+    {
+      name: 'Rhodes Scholarship', country: 'United Kingdom', funding: 'Fully Funded', degree: "Master's / DPhil",
+      deadline: 'October 2026',
+      desc: 'One of the oldest and most prestigious international scholarships, funding full postgraduate study at the University of Oxford for outstanding students from around the world.',
+      website: 'https://www.rhodeshouse.ox.ac.uk',
+      img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxfC4BV5N4fK3yjYdakURdgmdU_ZdweBfaUs1RPOBT2A&s=10'
     }
+  ];
 
-    list.forEach(function (scholarship) {
+  const searchInput = document.getElementById('searchInput');
+  const countryFilter = document.getElementById('countryFilter');
+  const fundingFilter = document.getElementById('fundingFilter');
+  const container = document.getElementById('scholarshipsContainer');
 
-        container.innerHTML += `
-
-        <div class="col-lg-4 col-md-6 mb-4">
-
-            <div class="university-card">
-
-                <img src="${scholarship.image}" alt="${scholarship.name}">
-
-                <div class="card-body">
-
-                    <h4>${scholarship.name}</h4>
-
-                    <p><i class="bi bi-geo-alt-fill"></i> ${scholarship.country}</p>
-
-                    <p><i class="bi bi-cash-stack"></i> ${scholarship.funding}</p>
-
-                    <p><i class="bi bi-mortarboard-fill"></i> ${scholarship.degree}</p>
-
-                    <div class="d-flex gap-2 mt-3">
-
-                        <button
-                            class="btn btn-primary flex-fill"
-                            onclick="showDetails('${scholarship.name}')">
-
-                            View Details
-
-                        </button>
-
-                        <button
-                            class="btn btn-outline-danger"
-                            onclick="addToFavorites('${scholarship.name}')">
-
-                            <i class="bi bi-heart-fill"></i>
-
-                        </button>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-        `;
-
-    });
-
-}
-
-function filterScholarships() {
-
-    const search = searchInput.value.toLowerCase();
-
+  function render() {
+    const q = searchInput.value.trim().toLowerCase();
     const country = countryFilter.value;
-
     const funding = fundingFilter.value;
 
-    const filtered = scholarships.filter(function (scholarship) {
-
-        const matchName =
-            scholarship.name.toLowerCase().includes(search);
-
-        const matchCountry =
-            country === "all" || scholarship.country === country;
-
-        const matchFunding =
-            funding === "all" || scholarship.funding === funding;
-
-        return matchName && matchCountry && matchFunding;
-
-    });
-
-    displayScholarships(filtered);
-
-}
-
-searchInput.addEventListener("keyup", filterScholarships);
-
-countryFilter.addEventListener("change", filterScholarships);
-
-fundingFilter.addEventListener("change", filterScholarships);
-
-function showDetails(name) {
-
-    const scholarship = scholarships.find(function (item) {
-
-        return item.name === name;
-
-    });
-
-    document.getElementById("modalTitle").textContent =
-        scholarship.name;
-
-    document.getElementById("modalImage").src =
-        scholarship.image;
-
-    document.getElementById("modalCountry").innerHTML =
-        "<strong>Country:</strong> " + scholarship.country;
-
-    document.getElementById("modalFunding").innerHTML =
-        "<strong>Funding:</strong> " + scholarship.funding;
-
-    document.getElementById("modalDegree").innerHTML =
-        "<strong>Degree:</strong> " + scholarship.degree;
-
-    document.getElementById("modalDeadline").innerHTML =
-        "<strong>Deadline:</strong> " + scholarship.deadline;
-
-    document.getElementById("modalDescription").innerHTML =
-        "Provider: " + scholarship.provider;
-
-    const websiteButton = document.getElementById("modalWebsite");
-
-    websiteButton.href = scholarship.website;
-
-    websiteButton.textContent = "Visit Official Website";
-
-    const modal = new bootstrap.Modal(
-        document.getElementById("scholarshipModal")
+    const filtered = scholarships.filter(s =>
+      s.name.toLowerCase().includes(q) &&
+      (country === 'all' || s.country === country) &&
+      (funding === 'all' || s.funding === funding)
     );
 
-    modal.show();
+    container.innerHTML = '';
 
-}
-
-function addToFavorites(name) {
-
-    let favorites = JSON.parse(localStorage.getItem("favoriteScholarships")) || [];
-
-    const scholarship = scholarships.find(function (item) {
-
-        return item.name === name;
-
-    });
-
-    const exists = favorites.some(function (item) {
-
-        return item.name === scholarship.name;
-
-    });
-
-    if (!exists) {
-
-        favorites.push(scholarship);
-
-        localStorage.setItem(
-            "favoriteScholarships",
-            JSON.stringify(favorites)
-        );
-
-        alert("Scholarship added to favorites ❤️");
-
-    } else {
-
-        alert("This scholarship is already in your favorites.");
-
+    if (filtered.length === 0) {
+      container.innerHTML = '<p class="no-results">No scholarships match these filters — try widening your search.</p>';
+      return;
     }
 
-}
+    filtered.forEach(s => {
+      const col = document.createElement('div');
+      col.className = 'col-lg-4 col-md-6 mb-4';
+      col.innerHTML = `
+        <div class="result-card">
+          <div class="result-img"><img src="${s.img}" alt="${s.name}" loading="lazy"></div>
+          <div class="result-body">
+            <h5>${s.name}</h5>
+            <div class="badge-row">
+              <span class="pill">${s.country}</span>
+              <span class="pill">${s.funding}</span>
+            </div>
+            <p class="desc">${s.desc}</p>
+            <div class="card-footer-row"><span>${s.degree}</span><span>→</span></div>
+          </div>
+        </div>
+      `;
+      col.querySelector('.result-card').addEventListener('click', () => openModal(s));
+      container.appendChild(col);
+    });
+  }
 
-displayScholarships(scholarships);
+  function openModal(s) {
+    document.getElementById('modalTitle').textContent = s.name;
+    document.getElementById('modalImage').src = s.img;
+    document.getElementById('modalCountry').innerHTML = `<strong>Country:</strong> ${s.country}`;
+    document.getElementById('modalFunding').innerHTML = `<strong>Funding:</strong> ${s.funding}`;
+    document.getElementById('modalDegree').innerHTML = `<strong>Degree level:</strong> ${s.degree}`;
+    document.getElementById('modalDeadline').innerHTML = `<strong>Typical deadline:</strong> ${s.deadline}`;
+    document.getElementById('modalDescription').textContent = s.desc;
+    document.getElementById('modalWebsite').href = s.website;
+
+    const modalEl = document.getElementById('scholarshipModal');
+    const modal = bootstrap.Modal.getOrCreateInstance(modalEl);
+    modal.show();
+  }
+
+  searchInput.addEventListener('input', render);
+  [countryFilter, fundingFilter].forEach(el => el.addEventListener('change', render));
+
+  render();
+});

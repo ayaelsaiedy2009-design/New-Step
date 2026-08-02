@@ -1,120 +1,613 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="en" dir="ltr">
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Housing | New Step</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700;900&family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+:root{
+  --ink: #1c1130;
+  --ink-soft: #2b1c47;
+  --royal: #4c2686;
+  --violet: #7c3aed;
+  --violet-dark: #6425c9;
+  --orchid: #a78bfa;
+  --lilac: #d9cbfa;
+  --mist: #f6f2fd;
+  --paper: #ffffff;
+  --text-dark: #241a38;
+  --text-muted: #6d5f88;
+  --radius: 16px;
+  --radius-sm: 10px;
+  --shadow: 0 18px 40px -18px rgba(76,38,134,.35);
+  --shadow-sm: 0 8px 20px -10px rgba(76,38,134,.28);
+}
 
-    <title>Student Housing</title>
+*{ box-sizing: border-box; }
 
-    <!-- Bootstrap -->
+body{
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background: var(--mist);
+  color: var(--text-dark);
+}
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+.page-head{
+  background:
+    radial-gradient(600px 340px at 85% -10%, rgba(124,58,237,.35), transparent),
+    var(--ink);
+  padding: 54px 0 60px;
+}
 
-    <!-- Bootstrap Icons -->
+.head-inner{
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
 
-    <link rel="stylesheet"
-          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+.brand{
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 22px;
+}
 
-    <!-- CSS -->
+.brand-mark{
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, var(--violet), var(--royal));
+  color: #fff;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: .85rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-    <link rel="stylesheet" href="housing.css">
+.brand-name{
+  color: #fff;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 1.05rem;
+}
 
+.page-head h1{
+  font-family: 'Poppins', sans-serif;
+  color: #fff;
+  font-weight: 700;
+  font-size: 2rem;
+  margin: 0 0 12px;
+  max-width: 600px;
+}
+
+.head-sub{
+  color: #c3b7e6;
+  line-height: 1.65;
+  margin: 0 0 34px;
+  max-width: 600px;
+}
+
+.search-bar{
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: var(--radius);
+  padding: 22px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1.4fr 1fr;
+  gap: 18px;
+  backdrop-filter: blur(6px);
+}
+
+@media (max-width: 860px){
+  .search-bar{ grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 520px){
+  .search-bar{ grid-template-columns: 1fr; }
+}
+
+.field label{
+  display: block;
+  color: #c3b7e6;
+  font-size: .78rem;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.field select{
+  width: 100%;
+  border: none;
+  border-radius: var(--radius-sm);
+  padding: 11px 12px;
+  font-family: 'Inter', sans-serif;
+  font-size: .88rem;
+  background: #fff;
+  color: var(--text-dark);
+}
+
+.price-field input[type="range"]{
+  width: 100%;
+  accent-color: var(--orchid);
+  margin-top: 6px;
+}
+
+#priceValue{ color: #fff; font-weight: 700; }
+
+.results-wrap{
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 40px 24px 70px;
+}
+
+.results-bar{ margin-bottom: 20px; }
+
+#resultsCount{
+  color: var(--text-muted);
+  font-size: .9rem;
+  margin: 0;
+}
+
+.cards-grid{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+  gap: 22px;
+}
+
+.house-card{
+  background: var(--paper);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  cursor: pointer;
+  transition: transform .2s ease, box-shadow .2s ease;
+  border: 1px solid rgba(124,58,237,.08);
+}
+
+.house-card:hover{
+  transform: translateY(-5px);
+  box-shadow: var(--shadow);
+}
+
+.house-card img{
+  width: 100%;
+  height: 170px;
+  object-fit: cover;
+}
+
+.house-body{ padding: 18px 20px; }
+
+.house-top{
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 8px;
+}
+
+.house-body h5{
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  margin: 0;
+  color: var(--text-dark);
+}
+
+.house-rating{
+  color: var(--royal);
+  font-size: .82rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.house-loc{
+  color: var(--text-muted);
+  font-size: .82rem;
+  margin: 0 0 10px;
+}
+
+.house-tags{ display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 12px; }
+
+.pill{
+  display: inline-block;
+  background: var(--lilac);
+  color: var(--royal);
+  font-size: .72rem;
+  font-weight: 600;
+  padding: 4px 11px;
+  border-radius: 999px;
+}
+
+.house-price{
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  color: var(--violet);
+  font-size: 1.05rem;
+}
+
+.house-price span{
+  font-weight: 500;
+  color: var(--text-muted);
+  font-size: .78rem;
+}
+
+.empty-state{
+  text-align: center;
+  color: var(--text-muted);
+  padding: 60px 0;
+}
+
+.empty-state.hidden{ display: none; }
+
+.overlay{
+  position: fixed;
+  inset: 0;
+  background: rgba(28,17,48,.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  z-index: 50;
+}
+
+.overlay.hidden{ display: none; }
+
+.detail-card{
+  background: #fff;
+  border-radius: var(--radius);
+  max-width: 560px;
+  width: 100%;
+  max-height: 88vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: var(--shadow);
+}
+
+.close-btn{
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  background: rgba(28,17,48,.55);
+  color: #fff;
+  border: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: .9rem;
+  z-index: 2;
+}
+
+.detail-card img{
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+.detail-body{ padding: 24px 26px 28px; }
+
+.detail-body h3{
+  font-family: 'Poppins', sans-serif;
+  margin: 0 0 6px;
+  color: var(--text-dark);
+}
+
+.detail-body .loc{ color: var(--text-muted); font-size: .9rem; margin-bottom: 14px; }
+
+.detail-body .desc{
+  color: var(--text-muted);
+  line-height: 1.65;
+  font-size: .92rem;
+  margin-bottom: 18px;
+}
+
+.detail-facts{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.fact{
+  background: var(--mist);
+  border-radius: var(--radius-sm);
+  padding: 12px 14px;
+}
+
+.fact-label{ display: block; font-size: .74rem; color: var(--text-muted); margin-bottom: 3px; }
+.fact-value{ font-weight: 700; color: var(--text-dark); font-size: .92rem; }
+
+.page-foot{
+  text-align: center;
+  padding: 36px 0;
+  background: var(--ink);
+}
+
+.page-foot p{ color: #b9a9e4; font-size: .85rem; margin: 0; }
+.page-foot strong{ color: #fff; }
+</style>
 </head>
-
 <body>
-
-<div class="container py-5">
-
-    <h1 class="text-center mb-5">
-         Student Housing
-    </h1>
-
-    <!-- Search -->
-
-    <div class="row mb-4">
-
-        <div class="col-md-4">
-
-            <input
-                type="text"
-                id="searchInput"
-                class="form-control"
-                placeholder="Search Housing">
-
+  <header class="page-head">
+    <div class="head-inner">
+      <div class="brand"><span class="brand-mark">NS</span><span class="brand-name">New Step</span></div>
+      <h1>Find housing close to your college</h1>
+      <p class="head-sub">Real student housing options across Egypt's university cities, with prices and reviews, so you can choose with confidence.</p>
+      <div class="search-bar">
+        <div class="field">
+          <label for="citySelect">City</label>
+          <select id="citySelect"><option value="all">All cities</option></select>
         </div>
-
-        <div class="col-md-3">
-
-            <select id="countryFilter" class="form-select">
-
-                <option value="all">All Countries</option>
-
-                <option>United Kingdom</option>
-
-                <option>Ireland</option>
-
-                <option>Canada</option>
-
-                <option>Australia</option>
-
-                <option>Netherlands</option>
-
-            </select>
-
+        <div class="field">
+          <label for="typeSelect">Housing type</label>
+          <select id="typeSelect"><option value="all">All types</option></select>
         </div>
-
-        <div class="col-md-3">
-
-            <select id="typeFilter" class="form-select">
-
-                <option value="all">All Types</option>
-
-                <option>Student Residence</option>
-
-                <option>Apartment</option>
-
-                <option>Hotel Residence</option>
-
-            </select>
-
+        <div class="field price-field">
+          <label for="priceRange">Max monthly price: <span id="priceValue">10000</span> EGP</label>
+          <input type="range" id="priceRange" min="1000" max="25000" step="500" value="10000">
         </div>
-
-        <div class="col-md-2">
-
-            <select id="priceFilter" class="form-select">
-
-                <option value="all">All Prices</option>
-
-                <option>$700/month</option>
-
-                <option>$750/month</option>
-
-                <option>$800/month</option>
-
-                <option>$850/month</option>
-
-                <option>$900/month</option>
-
-            </select>
-
+        <div class="field">
+          <label for="sortSelect">Sort by</label>
+          <select id="sortSelect">
+            <option value="rating">Highest rated</option>
+            <option value="price-asc">Price: low to high</option>
+            <option value="price-desc">Price: high to low</option>
+          </select>
         </div>
-
+      </div>
     </div>
+  </header>
 
-    <!-- Cards -->
+  <main class="results-wrap">
+    <div class="results-bar"><p id="resultsCount"></p></div>
+    <div id="cardsGrid" class="cards-grid"></div>
+    <p id="emptyState" class="empty-state hidden">No housing matches this filter yet — try widening your price range.</p>
+  </main>
 
-    <div class="row" id="housingContainer">
-
+  <div id="detailOverlay" class="overlay hidden">
+    <div class="detail-card">
+      <button id="closeDetail" class="close-btn" aria-label="Close">✕</button>
+      <div id="detailContent"></div>
     </div>
+  </div>
 
-</div>
+  <footer class="page-foot">
+    <p>Part of <strong>New Step</strong> — an AI-powered university admissions assistant for Egyptian high school students</p>
+  </footer>
+<script>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+document.addEventListener('DOMContentLoaded', () => {
 
-<script src="housing.js"></script>
+  const listings = [
+    {
+      id: 1, title: 'Shared apartment near AUC New Cairo', city: 'Cairo', type: 'Shared Apartment',
+      price: 4500, rating: 4.6, beds: 3,
+      img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRKplDgmYJ-H615-n6OxxMRT0LJZyvonIgRisSoYrWqIUdu5ZIWQmRaHXk&s=10',
+      desc: "A furnished 3-bedroom flat five minutes' walk from AUC's main gate. Shared kitchen and living room, weekly cleaning included, fast internet."
+    },
+    {
+      id: 2, title: 'Studio in Zamalek', city: 'Cairo', type: 'Studio',
+      price: 7200, rating: 4.8, beds: 1,
+      img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTL_qs_E8j0R5mWPCBx7ob4cs8qObo18uCOUuZT8CGZ2BJOXNrrjUGaw0I&s=10',
+      desc: 'A quiet studio on a tree-lined street, close to Cairo University and the metro. Fully furnished with a small kitchenette and AC.'
+    },
+    {
+      id: 3, title: 'University dorm — Ain Shams', city: 'Cairo', type: 'Dorm',
+      price: 1800, rating: 4.1, beds: 2,
+      img: 'https://mg.usembassy.gov/wp-content/uploads/sites/47/2023/03/fulbright-foreign-student-program3.jpeg',
+      desc: 'Official Ain Shams University dorm room, shared with one roommate. Includes meals, laundry service, and a study hall on-site.'
+    },
+    {
+      id: 4, title: 'Shared flat near Alexandria University', city: 'Alexandria', type: 'Shared Apartment',
+      price: 3200, rating: 4.4, beds: 4,
+      img: 'https://www.nz.emb-japan.go.jp/culture_education/images/mext_logo.gif',
+      desc: 'Sea-breeze apartment ten minutes from the medical campus. Four bedrooms, shared kitchen, and a balcony overlooking the corniche.'
+    },
+    {
+      id: 5, title: 'Studio in Smouha', city: 'Alexandria', type: 'Studio',
+      price: 5000, rating: 4.5, beds: 1,
+      img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTFRNxSpFphVM6wwmUJjaJpCrJQwFoGPKlaC1ysW5JDLw&s=10',
+      desc: 'Modern studio in a well-connected neighborhood, close to tram lines and a short ride to most Alexandria campuses.'
+    },
+    {
+      id: 6, title: 'Shared apartment near Mansoura University', city: 'Mansoura', type: 'Shared Apartment',
+      price: 2600, rating: 4.3, beds: 3,
+      img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQg0D5OofBmEc_OTxERgITptFyb8IUcyZVgv_4bKlK4oTMJx2BIQuU23y99&s=10',
+      desc: 'Popular with medical and engineering students. Walking distance from the faculty of medicine, with a shared study room.'
+    },
+    {
+      id: 7, title: 'University dorm — Assiut University', city: 'Assiut', type: 'Dorm',
+      price: 1500, rating: 4.0, beds: 2,
+      img: 'https://static.youthop.com/uploads/2024/02/australia-awards-scholarship-2025.png',
+      desc: 'On-campus housing with meals included and a shuttle to the main lecture halls. Most affordable option on this list.'
+    },
+    {
+      id: 8, title: 'Shared flat near Tanta University', city: 'Tanta', type: 'Shared Apartment',
+      price: 2400, rating: 4.2, beds: 3,
+      img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOILklbo1t0BRsZOB4HxRhQ7u4bv09KlHYyPiWtgumpg&s=10',
+      desc: 'Recently renovated apartment close to the Faculty of Engineering. Includes furnished bedrooms and a shared kitchen.'
+    },
+    {
+      id: 9, title: 'Studio near German University in Cairo', city: 'Cairo', type: 'Studio',
+      price: 6300, rating: 4.7, beds: 1,
+      img: 'https://i0.wp.com/opportunitiesforyouth.org/wp-content/uploads/2023/11/1631619171488.jpeg?resize=1280%2C640&ssl=1',
+      desc: 'Compact studio in New Cairo, a short drive from GUC and the AUC. Furnished, with 24/7 building security.'
+    },
+    {
+      id: 10, title: 'Shared apartment near Suez Canal University', city: 'Ismailia', type: 'Shared Apartment',
+      price: 2100, rating: 4.1, beds: 3,
+      img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdzkhltsX10vrdHCxilz6IcExc81fJPNZFavwz0m89Ku_7D3kslnX6DSJO&s=10',
+      desc: 'Calm residential building close to campus, popular with out-of-town students. Utilities included in rent.'
+    },
+    {
+      id: 11, title: 'Studio near Nile University', city: 'Cairo', type: 'Studio',
+      price: 6800, rating: 4.6, beds: 1,
+      img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQfj5U9DHIpNBbW6cPbVySlAUoJ_85sdsaRttKn-vgFvYK-Ek-MXmIlW04&s=10',
+      desc: 'Bright studio in Sheikh Zayed, a short ride from Nile University and 6th of October campuses. Furnished with high-speed internet.'
+    },
+    {
+      id: 12, title: 'Shared apartment near Helwan University', city: 'Cairo', type: 'Shared Apartment',
+      price: 2900, rating: 4.2, beds: 3,
+      img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROkd717uoIbQtl1fyWT9x0AOu0cAAEzBNBEDngLbrPow&s=10',
+      desc: 'Simple furnished flat near the Faculty of Engineering, ten minutes from the metro station. Shared kitchen and living space.'
+    },
+    {
+      id: 13, title: 'University dorm — Cairo University', city: 'Cairo', type: 'Dorm',
+      price: 2000, rating: 4.3, beds: 2,
+      img: 'https://www.singapour.campusfrance.org/sites/pays/files/singapour/The%20Eiffel%20Scholarship%20of%20Excellence.jpeg',
+      desc: 'On-campus dorm room with meals and laundry included, a five-minute walk from the main faculties.'
+    },
+    {
+      id: 14, title: 'Shared flat near Alexandria Faculty of Engineering', city: 'Alexandria', type: 'Shared Apartment',
+      price: 3600, rating: 4.5, beds: 3,
+      img: 'https://opportunitytracker.ug/wp-content/uploads/2025/07/F10AF1D1-56F1-44F5-B95A-8A3105BC89D8.jpeg',
+      desc: 'Bright apartment near Sidi Gaber, close to tram lines and a short walk from the engineering campus.'
+    },
+    {
+      id: 15, title: 'Studio near Pharos University', city: 'Alexandria', type: 'Studio',
+      price: 4700, rating: 4.4, beds: 1,
+      img: 'https://stipendiumhungaricum.hu/wp-content/uploads/2022/06/SH_logo_vertical_color.jpg',
+      desc: 'Cozy studio close to Miami, near Pharos University with easy access to public transport.'
+    },
+    {
+      id: 16, title: 'Shared apartment near Zagazig University', city: 'Zagazig', type: 'Shared Apartment',
+      price: 2200, rating: 4.1, beds: 3,
+      img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRW3ctg3bNiUEAo2eS5_OpERSFLII0mCMWFcEHFAUtXpS-lkafnThGPNSEi&s=10',
+      desc: 'Affordable shared flat a few minutes from campus, popular with students from nearby governorates.'
+    },
+    {
+      id: 17, title: 'University dorm — Minya University', city: 'Minya', type: 'Dorm',
+      price: 1400, rating: 3.9, beds: 2,
+      img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_RwX1MfilbEC-n15YmwNIhefWAgp1t_axH1SvknJw7IOlYArokaAetlY&s=10',
+      desc: 'Basic on-campus housing with meals included, close to the main lecture halls and library.'
+    },
+    {
+      id: 18, title: 'Shared flat near Beni Suef University', city: 'Beni Suef', type: 'Shared Apartment',
+      price: 2000, rating: 4.0, beds: 3,
+      img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQdtB0UPELofMG80uDdqeU8imAji2KySUbqfZ8bM0dMKwHTvxs8hQ_Zmg7&s=10',
+      desc: 'Quiet residential building near campus, furnished bedrooms with a shared kitchen and study area.'
+    },
+    {
+      id: 19, title: 'Studio near Damietta University', city: 'Damietta', type: 'Studio',
+      price: 3400, rating: 4.3, beds: 1,
+      img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDLT1lLpI8ZoYMOVorFHJadoGiGnRD1CAY-yT5uSkCWQ&s=10',
+      desc: 'Compact studio close to the coast and a short ride from the main university campus.'
+    },
+    {
+      id: 20, title: 'Shared apartment near Fayoum University', city: 'Fayoum', type: 'Shared Apartment',
+      price: 1900, rating: 4.0, beds: 4,
+      img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmnOlVlvPOf6DPiGG1u1h52UmVy62NcllltpuUSLJQlzoyUUWn5z_2N4kO&s=10',
+      desc: 'Spacious flat shared between four students, a short walk from the Faculty of Science.'
+    },
+    {
+      id: 21, title: 'Studio near Sohag University', city: 'Sohag', type: 'Studio',
+      price: 2800, rating: 4.2, beds: 1,
+      img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRKplDgmYJ-H615-n6OxxMRT0LJZyvonIgRisSoYrWqIUdu5ZIWQmRaHXk&s=10',
+      desc: 'Newly furnished studio a short walk from campus, with reliable internet and a small kitchenette.'
+    }
+  ];
 
+  const citySelect = document.getElementById('citySelect');
+  const typeSelect = document.getElementById('typeSelect');
+  const priceRange = document.getElementById('priceRange');
+  const priceValue = document.getElementById('priceValue');
+  const sortSelect = document.getElementById('sortSelect');
+  const cardsGrid = document.getElementById('cardsGrid');
+  const resultsCount = document.getElementById('resultsCount');
+  const emptyState = document.getElementById('emptyState');
+  const overlay = document.getElementById('detailOverlay');
+  const detailContent = document.getElementById('detailContent');
+  const closeDetail = document.getElementById('closeDetail');
+
+  [...new Set(listings.map(l => l.city))].sort().forEach(city => {
+    const opt = document.createElement('option');
+    opt.value = city; opt.textContent = city;
+    citySelect.appendChild(opt);
+  });
+  [...new Set(listings.map(l => l.type))].forEach(type => {
+    const opt = document.createElement('option');
+    opt.value = type; opt.textContent = type;
+    typeSelect.appendChild(opt);
+  });
+
+  function render() {
+    const city = citySelect.value;
+    const type = typeSelect.value;
+    const maxPrice = parseInt(priceRange.value, 10);
+    const sort = sortSelect.value;
+
+    let filtered = listings.filter(l =>
+      (city === 'all' || l.city === city) &&
+      (type === 'all' || l.type === type) &&
+      l.price <= maxPrice
+    );
+
+    if (sort === 'price-asc') filtered.sort((a, b) => a.price - b.price);
+    else if (sort === 'price-desc') filtered.sort((a, b) => b.price - a.price);
+    else filtered.sort((a, b) => b.rating - a.rating);
+
+    resultsCount.textContent = `${filtered.length} place${filtered.length === 1 ? '' : 's'} found`;
+    cardsGrid.innerHTML = '';
+
+    if (filtered.length === 0) {
+      emptyState.classList.remove('hidden');
+      return;
+    }
+    emptyState.classList.add('hidden');
+
+    filtered.forEach(l => {
+      const card = document.createElement('div');
+      card.className = 'house-card';
+      card.innerHTML = `
+        <img src="${l.img}" alt="${l.title}">
+        <div class="house-body">
+          <div class="house-top">
+            <h5>${l.title}</h5>
+            <span class="house-rating">★ ${l.rating}</span>
+          </div>
+          <p class="house-loc">${l.city} · ${l.beds} bedroom${l.beds > 1 ? 's' : ''}</p>
+          <div class="house-tags"><span class="pill">${l.type}</span></div>
+          <div class="house-price">${l.price.toLocaleString('en-US')} <span>EGP / month</span></div>
+        </div>
+      `;
+      card.addEventListener('click', () => openDetail(l));
+      cardsGrid.appendChild(card);
+    });
+  }
+
+  function openDetail(l) {
+    detailContent.innerHTML = `
+      <img src="${l.img}" alt="${l.title}">
+      <div class="detail-body">
+        <h3>${l.title}</h3>
+        <p class="loc">${l.city}</p>
+        <p class="desc">${l.desc}</p>
+        <div class="detail-facts">
+          <div class="fact"><span class="fact-label">Type</span><span class="fact-value">${l.type}</span></div>
+          <div class="fact"><span class="fact-label">Bedrooms</span><span class="fact-value">${l.beds}</span></div>
+          <div class="fact"><span class="fact-label">Rating</span><span class="fact-value">★ ${l.rating}</span></div>
+          <div class="fact"><span class="fact-label">Price</span><span class="fact-value">${l.price.toLocaleString('en-US')} EGP/mo</span></div>
+        </div>
+      </div>
+    `;
+    overlay.classList.remove('hidden');
+  }
+
+  closeDetail.addEventListener('click', () => overlay.classList.add('hidden'));
+  overlay.addEventListener('click', (e) => { if (e.target === overlay) overlay.classList.add('hidden'); });
+
+  citySelect.addEventListener('change', render);
+  typeSelect.addEventListener('change', render);
+  sortSelect.addEventListener('change', render);
+  priceRange.addEventListener('input', () => {
+    priceValue.textContent = parseInt(priceRange.value, 10).toLocaleString('en-US');
+    render();
+  });
+
+  render();
+});
+</script>
 </body>
-
 </html>

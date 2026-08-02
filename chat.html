@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Friend | New Step</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700;900&family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/chat.css">
+</head>
+<body>
+  <header class="chat-head">
+    <a href="dashboard.html" class="back-link">&larr; Back to Dashboard</a>
+    <div class="head-inner">
+      <div>
+        <h1>AI Friend</h1>
+        <p>Ask about universities, scholarships, and admissions.</p>
+      </div>
+    </div>
+  </header>
+
+  <main class="chat-wrap">
+    <div id="chatWindow" class="chat-window">
+      <div class="message bot">
+        <div class="bubble">Hi! I'm your AI Friend 👋 Ask me anything about universities, majors, or scholarships in Egypt.</div>
+      </div>
+    </div>
+
+    <div class="quick-replies" id="quickReplies">
+      <button class="quick-btn" data-q="What majors fit my grades?">What majors fit my grades?</button>
+      <button class="quick-btn" data-q="How do scholarships work?">How do scholarships work?</button>
+      <button class="quick-btn" data-q="What's the coordination system?">What's the coordination system?</button>
+    </div>
+
+    <form id="chatForm" class="chat-input-row">
+      <input type="text" id="chatInput" placeholder="Type your question..." autocomplete="off" required>
+      <button type="submit" id="sendBtn">Send</button>
+    </form>
+  </main>
+
+  <footer class="chat-foot">
+    <p>Part of <strong>New Step</strong> — an AI-powered university admissions assistant for Egyptian high school students</p>
+  </footer>
+  <script src="js/chat.js"></script>
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Budget Calculator | New Step</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700;900&family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/budget.css">
+</head>
+<body>
+  <header class="page-head">
+    <div class="head-inner">
+      <div class="brand"><span class="brand-mark">NS</span><span class="brand-name">New Step</span></div>
+      <h1>Living Cost & Budget Calculator</h1>
+      <p class="head-sub">Estimate your monthly expenses as a student living away from home, and compare them to your budget so you can plan ahead.</p>
+    </div>
+  </header>
+
+  <main class="calc-wrap">
+    <section class="calc-card">
+      <h2>1. Monthly Budget</h2>
+      <div class="field-row">
+        <label for="budgetInput">Total available to you per month (EGP)</label>
+        <input type="number" id="budgetInput" placeholder="e.g. 8000" min="0">
+      </div>
+    </section>
+
+    <section class="calc-card">
+      <h2>2. Housing</h2>
+      <div class="field-row">
+        <label for="rentInput">Monthly rent (EGP)</label>
+        <input type="number" id="rentInput" placeholder="e.g. 3000" min="0">
+      </div>
+    </section>
+
+    <section class="calc-card">
+      <h2>3. Monthly Utilities (electricity / water / internet)</h2>
+      <div class="grid-2">
+        <div class="field-row">
+          <label for="electricityInput">Electricity (EGP)</label>
+          <input type="number" id="electricityInput" placeholder="300" min="0">
+        </div>
+        <div class="field-row">
+          <label for="waterInput">Water (EGP)</label>
+          <input type="number" id="waterInput" placeholder="100" min="0">
+        </div>
+        <div class="field-row">
+          <label for="internetInput">Internet / mobile data (EGP)</label>
+          <input type="number" id="internetInput" placeholder="250" min="0">
+        </div>
+        <div class="field-row">
+          <label for="gasInput">Gas (EGP)</label>
+          <input type="number" id="gasInput" placeholder="80" min="0">
+        </div>
+      </div>
+    </section>
+
+    <section class="calc-card">
+      <h2>4. Food</h2>
+      <div class="grid-2">
+        <div class="field-row">
+          <label for="groceriesInput">Groceries & home cooking (EGP / mo)</label>
+          <input type="number" id="groceriesInput" placeholder="1200" min="0">
+        </div>
+        <div class="field-row">
+          <label for="eatingOutInput">Eating out / delivery (EGP / mo)</label>
+          <input type="number" id="eatingOutInput" placeholder="600" min="0">
+        </div>
+      </div>
+    </section>
+
+    <section class="calc-card">
+      <h2>5. Other Expenses</h2>
+      <div class="grid-2">
+        <div class="field-row">
+          <label for="transportInput">Transportation (EGP / mo)</label>
+          <input type="number" id="transportInput" placeholder="400" min="0">
+        </div>
+        <div class="field-row">
+          <label for="otherInput">Personal / miscellaneous (EGP / mo)</label>
+          <input type="number" id="otherInput" placeholder="500" min="0">
+        </div>
+      </div>
+    </section>
+
+    <button id="calcBtn" class="calc-btn">Calculate expenses</button>
+
+    <section id="resultSection" class="result-section hidden">
+      <h2>Result</h2>
+      <div class="summary-row">
+        <div class="summary-box">
+          <span class="summary-label">Total monthly expenses</span>
+          <span id="totalExpenses" class="summary-value">0 EGP</span>
+        </div>
+        <div class="summary-box">
+          <span class="summary-label">Remaining budget</span>
+          <span id="remainingBudget" class="summary-value">0 EGP</span>
+        </div>
+      </div>
+      <p id="statusMessage" class="status-message"></p>
+      <div class="breakdown">
+        <h3>Expense breakdown</h3>
+        <div id="breakdownBars" class="breakdown-bars"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="page-foot">
+    <p>Part of <strong>New Step</strong> — an AI-powered university admissions assistant for Egyptian high school students</p>
+  </footer>
+  <script src="js/budget.js"></script>
+</body>
+</html>
